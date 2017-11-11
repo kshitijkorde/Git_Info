@@ -1,4 +1,71 @@
+=======================================================
 Command to list local commits that weren't pushed to the remote repository
+
 $ git log origin/master..HEAD
 $ git diff origin/master..HEAD
 
+Example
+=======================================================
+
+kshi@ThinkPad:~/CPP_Boost$ git diff origin/master..HEAD
+diff --git a/Filesystem/Makefile b/Filesystem/Makefile
+index 02820f9..3c8ab5c 100644
+--- a/Filesystem/Makefile
++++ b/Filesystem/Makefile
+@@ -6,7 +6,7 @@ LIBS= -I $(BOOST_HEADER_PATH)
+ LIBS+= -L $(BOOST_LIBRARY_PATH) $(BOOST_LIBRARIES)
+ 
+ binPath: Path.cpp
+-       $(CXX) -o binPath Path.cpp $(LIBS) 
++       $(CXX) -o binPath Path.cpp $(LIBS) -Wall
+ clean:
+        rm binPath
+ 
+kshi@ThinkPad:~/CPP_Boost$ git log origin/master..HEAD
+commit 27659ff3a56ecb500e7c81c2628452b890cabbab
+Author: kshitijkorde <kshi.korde@gmail.com>
+Date:   Sat Nov 11 13:48:42 2017 +0000
+
+    Added -Wall flag for enabling warnings
+
+=======================================================
+Command to remove a directory and its contents
+
+$ git rm -r <Directory_Name>
+
+Example
+=======================================================
+kshi@ThinkPad:~/Git_Info$ ls
+Git_Commands.txt  Git_Info
+kshi@ThinkPad:~/Git_Info$ rm -rf Git_Info/
+kshi@ThinkPad:~/Git_Info$ git status
+On branch master
+Your branch is up-to-date with 'origin/master'.
+Changes not staged for commit:
+  (use "git add/rm <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	deleted:    Git_Info/Git_Commands.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+kshi@ThinkPad:~/Git_Info$ ls
+Git_Commands.txt
+kshi@ThinkPad:~/Git_Info$ git rm Git_Info/
+fatal: not removing 'Git_Info/' recursively without -r
+kshi@ThinkPad:~/Git_Info$ git rm -r Git_Info/
+rm 'Git_Info/Git_Commands.txt'
+kshi@ThinkPad:~/Git_Info$ git commit
+[master 58e0195] Removing additional created directory
+ 1 file changed, 4 deletions(-)
+ delete mode 100644 Git_Info/Git_Commands.txt
+kshi@ThinkPad:~/Git_Info$ git push origin master
+Username for 'https://github.com': kshi.korde@gmail.com
+Password for 'https://kshi.korde@gmail.com@github.com': 
+Counting objects: 1, done.
+Writing objects: 100% (1/1), 203 bytes | 0 bytes/s, done.
+Total 1 (delta 0), reused 0 (delta 0)
+To https://github.com/kshitijkorde/Git_Info.git
+   9ccf59b..58e0195  master -> master
+kshi@ThinkPad:~/Git_Info$ ls
+Git_Commands.txt
+============================================================
