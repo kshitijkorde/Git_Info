@@ -1,0 +1,4 @@
+Command to list local commits that weren't pushed to the remote repository
+$ git log origin/master..HEAD
+$ git diff origin/master..HEAD
+
