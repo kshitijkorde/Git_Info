@@ -4,8 +4,9 @@ Command to list local commits that weren't pushed to the remote repository
 $ git log origin/master..HEAD
 $ git diff origin/master..HEAD
 
+=======
 Example
-=======================================================
+=======
 
 kshi@ThinkPad:~/CPP_Boost$ git diff origin/master..HEAD
 diff --git a/Filesystem/Makefile b/Filesystem/Makefile
@@ -33,8 +34,9 @@ Command to remove a directory and its contents
 
 $ git rm -r <Directory_Name>
 
+=======
 Example
-=======================================================
+=======
 kshi@ThinkPad:~/Git_Info$ ls
 Git_Commands.txt  Git_Info
 kshi@ThinkPad:~/Git_Info$ rm -rf Git_Info/
